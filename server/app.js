@@ -2,6 +2,9 @@ const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -11,6 +14,8 @@ mongoose.set('useUnifiedTopology', true);
 //create app.js
 const app = express();
 
+//allow cros origin requests
+app.use(cors());
 
 mongoose.connect('mongodb://localhost/gql-db');
 
