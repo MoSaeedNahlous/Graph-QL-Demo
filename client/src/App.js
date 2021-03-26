@@ -2,8 +2,8 @@ import React from 'react';
 import ApolloClient from 'apollo-boost'
 import BookList from './components/BookList.js'
 import {ApolloProvider} from 'react-apollo'
-import AuthorSelector from './components/AuthorSelector.js';
 import AddNewBook from './components/AddNewBook.js';
+import AddNewAuthor from './components/AddNewAuthor.js';
 
 //Apollo Client Setup
 const client = new ApolloClient({
@@ -15,10 +15,10 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <div id="main">
-        <h1>Library App</h1>
+        <h1 className="title">Library App</h1>
         <BookList />
-        <AuthorSelector />
         <AddNewBook />
+        <AddNewAuthor />
       </div>
     </ApolloProvider>
   );
