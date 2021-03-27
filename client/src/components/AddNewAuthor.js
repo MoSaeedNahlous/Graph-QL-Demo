@@ -1,9 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
-
-
-
-
-
+import React, { Fragment, useState } from 'react';
+import { addAuthorMutation } from '../queries/queries.js'
+import { graphql } from 'react-apollo'
 
 const AddNewAuthor = (props) => {
 
@@ -18,11 +15,16 @@ const AddNewAuthor = (props) => {
 
     const SubmitHandler = (e) => {
         e.preventDefault();
+        props.addAuthorMutation({
+            variables: {
+                name: newAuthor.name,
+                age: Number.parseInt(newAuthor.age)
+            }
+            
+        });
         
-        
-        console.log(newAuthor)
         document.getElementById('AddAuthorForm').reset()
-        // setNewAuthor({name:'',age:0})
+        
 
     }
 
@@ -43,4 +45,4 @@ const AddNewAuthor = (props) => {
     )
 }
 
-export default AddNewAuthor
+export default graphql(addAuthorMutation,{name:'addAuthorMutation'})(AddNewAuthor);

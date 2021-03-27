@@ -1,14 +1,12 @@
-import React, { Fragment, useState } from 'react';
-import { getAuthorsQuery,addBookMutation } from '../queries/queries'
-//binding react and apollo
+import React, { Fragment, useState } from 'react'
+import { updateBookMutation,getAuthorsQuery } from '../queries/queries.js'
 import { graphql } from 'react-apollo'
 import {flowRight as compose} from 'lodash';
 
 
-const AddNewBook = (props) => {
-
+const UpdateBook=(props)=> {
     const [newBook, setNewBook] = useState({
-    name:"",genre:"",authorId:[]
+    name:"",genre:"",authorId:[],id:""
     })
 
     const OnChangeHandler = (e) => {
@@ -29,28 +27,31 @@ const AddNewBook = (props) => {
 
         e.preventDefault();
 
-        props.addBookMutation({
+        console.log(newBook)
+
+        props.updateBookMutation({
             variables: {
                 name: newBook.name,
                 genre: newBook.genre,
-                authorId: newBook.authorId
+                authorId: newBook.authorId,
+                id:newBook.id
             }
             
         });
         
-        document.getElementById('addBookForm').reset();
+        document.getElementById('updateBookForm').reset();
         
         
     }
-
-    
-
     return (
         <Fragment>
-            <h3>Add New Book</h3>
-            <form id='addBookForm' onSubmit={SubmitHandler} >
-                <label>Book Name:</label>
+            <h3>Update Book</h3>
+            <form id='updateBookForm' onSubmit={SubmitHandler} >
+                <label>Book ID:</label>
+                <input type="text" name="id" required placeholder="Enter the ID" onChange={OnChangeHandler}/>
+                <br/>
 
+                <label>Book Name:</label>
                 <input type="text" name="name" required
                     placeholder="Enter the name" onChange={OnChangeHandler} />
                 
@@ -74,13 +75,13 @@ const AddNewBook = (props) => {
             </select>
         </Fragment>
                 <br/>
-                <button type="submit"> Add Book</button>
+                <button type="submit"> Update Book</button>
             </form>
         </Fragment>
     )
 }
 
 export default compose(
-    graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
-    graphql(addBookMutation,{name:'addBookMutation'})
-)(AddNewBook);
+    graphql(updateBookMutation, { name:'updateBookMutation'}),
+    graphql(getAuthorsQuery, { name: 'getAuthorsQuery' })
+)(UpdateBook)
