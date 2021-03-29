@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { addAuthorMutation } from '../queries/queries.js'
+import { addAuthorMutation,getAuthorsQuery } from '../queries/queries.js'
 import { graphql } from 'react-apollo'
 
 const AddNewAuthor = (props) => {
@@ -19,7 +19,7 @@ const AddNewAuthor = (props) => {
             variables: {
                 name: newAuthor.name,
                 age: Number.parseInt(newAuthor.age)
-            }
+            },refetchQueries:[{query:getAuthorsQuery}]
             
         });
         
