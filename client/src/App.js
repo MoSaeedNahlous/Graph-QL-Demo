@@ -17,13 +17,16 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <div id="main">
-        <h1 className="title">Library App</h1>
+      <div id="container">
+        <h1 className="title">Reading List App</h1>
         <BookList />
+        <h2 style={{textAlign:'center',borderBottom:'1px solid black'}}>Actions</h2>
+        <div className="mini-container">
         <AddNewBook />
         <AddNewAuthor />
         <UpdateBook />
-        <UpdateAuthor />
+          <UpdateAuthor />
+        </div>
       </div>
     </ApolloProvider>
   );

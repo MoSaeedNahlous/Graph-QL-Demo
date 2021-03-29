@@ -44,7 +44,7 @@ const UpdateBook=(props)=> {
         
     }
     return (
-        <Fragment>
+        <div>
             <h3>Update Book</h3>
             <form id='updateBookForm' onSubmit={SubmitHandler} >
                 <label>Book ID:</label>
@@ -77,7 +77,7 @@ const UpdateBook=(props)=> {
                 <br/>
                 <button type="submit"> Update Book</button>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

@@ -11,20 +11,19 @@ const BookList = (props) => {
     const [selected, setSelected] = useState({selectedBook:null})
 
     
-    return (<div>
+    return (<div className="book-list-container">
         
-        <h2>this is bookList component</h2>
-        <ul id="book-list">
+        <ol id="book-list">
             {props.data.loading === false ? (
                 props.data.books.map(book => {
-                    return (<li key={book.id} onClick={(e)=> setSelected({ selectedBook: book.id })}>{book.name}</li>)
+                    return (<li className='book-list' key={book.id} onClick={(e)=> setSelected({ selectedBook: book.id })}>{book.name}</li>)
                 })
             ):(<p>Loading...</p>)}
             
 
-        </ul>
-        <br />
-        <BookDetails bookId={selected.selectedBook} />
+        </ol>
+        
+        <BookDetails className='book-details' bookId={selected.selectedBook} />
     </div>
         
     )

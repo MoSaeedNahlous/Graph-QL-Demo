@@ -34,8 +34,9 @@ const UpdateAuthor =(props)=> {
         
     }
     return (
-        <Fragment>
+        <div>
             <h3>Update Author</h3>
+            
             <form id='updateAuthorForm' onSubmit={SubmitHandler} >
                 <label>Author ID:</label>
                 <input type="text" name="id" required placeholder="Enter the ID" onChange={OnChangeHandler}/>
@@ -55,7 +56,7 @@ const UpdateAuthor =(props)=> {
                 <br/>
                 <button type="submit"> Update Author</button>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

@@ -29,19 +29,20 @@ const AddNewAuthor = (props) => {
     }
 
     return (
-        <Fragment>
+        <div>
             <h3>Add New Author</h3>
             <form id="AddAuthorForm" onSubmit={SubmitHandler} >
                 <label>Author Name:</label>
                 <input type="text" name="name" required placeholder="Enter the Name" onChange={OnChangeHandler} />
                 <br />
                 <label>Author Age:</label>
+                
                 <input type="number" name="age" required placeholder="Enter the Age" onChange={OnChangeHandler}/>
 
                 <br/>
                 <button type="submit">Add Author</button>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

@@ -50,7 +50,7 @@ const AddNewBook = (props) => {
     
 
     return (
-        <Fragment>
+        <div>
             <h3>Add New Book</h3>
             <form id='addBookForm' onSubmit={SubmitHandler} >
                 <label>Book Name:</label>
@@ -80,7 +80,7 @@ const AddNewBook = (props) => {
                 <br/>
                 <button type="submit"> Add Book</button>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

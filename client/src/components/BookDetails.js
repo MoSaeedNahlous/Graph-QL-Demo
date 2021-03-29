@@ -6,20 +6,21 @@ const BookDetails = (props) => {
  const {book} = props.data
     if (book) {
         return (
-            <div>
-                
-                <h2>{book.name}</h2>
-                <h3>{book.genre}</h3>
+            <div className='book-details'>
+                <h4>Book's Name:</h4>
+                <h2 style={{textAlign:'center'}}>{book.name}</h2>
+                <h4>Book's Genre:</h4>
+                <h3 style={{textAlign:'center'}}>{book.genre}</h3>
                 <h4>Authors:</h4>
-                <h4>{book.author.map(auth => {
+                <h3>{book.author.map(auth => {
                     return <li>{auth.name}</li>
-                })}</h4>
+                })}</h3>
             </div>
         )
     } else {
     return (
         <div>
-            <p>book details here....</p>
+            <p>Select a Book from the list..</p>
         </div>
         )
     }
