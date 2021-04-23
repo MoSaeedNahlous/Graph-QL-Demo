@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { addAuthorMutation,getAuthorsQuery } from '../queries/queries.js'
 import { graphql } from 'react-apollo'
 
